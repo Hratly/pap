@@ -1,0 +1,26 @@
+<f:layout name="Default" />
+
+<f:section name="main">
+<f:format.html>{categories}</f:format.html>
+<h1>Affichage des contenus</h1>
+
+<f:flashMessages />
+
+<f:if condition="{countContenus} == 0">
+    <f:then>
+        Aucun contenu présentement disponible
+    </f:then>
+    <f:else>
+        <f:for each="{contenus}" as="contenu">
+            <div class="container">
+                <f:image src="{contenu.image}" alt="Présentation du contenu"/>
+                {contenu.prix}$<br/>
+                <f:link.action action="show" arguments="{contenu : contenu}"><h3>{contenu.nom} :</h3>
+                {contenu.description}</f:link.action>
+            </div>
+        </f:for>
+    </f:else>
+</f:if>
+
+<f:link.action action="new" class="btn">Ajouter un nouveau contenu</f:link.action>
+</f:section>

@@ -1,0 +1,18 @@
+<f:layout name="Default" />
+
+<f:section name="main">
+<h1>Créer un contenu</h1>
+
+<f:flashMessages />
+<f:render partial="FormErrors" arguments="{object:Contenu}"/>
+<f:form enctype="multipart/form-data" action="create" controller="Contenu" objectName="newContenu" object="{newContenu}" method="post" class="form-horizontal">
+<f:render partial="Contenu/FormFields" />
+    <f:form.hidden property="proprietaire" value="{utilisateur.user.uid}" />
+    </br>
+    <f:format.html>{categories}</f:format.html>
+    <br/>
+    <f:form.select id="categories" property="categories" multiple="true" options="{categoriesPlain}" optionValueField="uid" optionLabelField="nom"/>
+
+	<input type="submit" value="Créer" class="btn" onclick="selectAll();"/>
+</f:form>
+</f:section>

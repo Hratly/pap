@@ -1,0 +1,21 @@
+<f:form action="create" class="form-horizontal" controller="Commentaire" name="newCommentaire" object="{newCommentaire}">
+    <f:form.hidden name="contenu" value="{contenu.uid}"/>
+    <div class="control-group">
+        <label class="control-label" for="commentaire">Laisser un commentaire</label>
+        <div class="controls">
+            <f:form.textarea property="commentaire" cols="40" property="commentaire"/>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="note"><f:translate key="tx_papmarketplace_domain_model_commentaire.note" /></label>
+        <div class="controls">
+            <f:form.hidden id="note" name="note" property="note"/>
+            <div id="star"/>
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="controls">
+            <f:form.submit class="btn" value="Laisser un commentaire"/>
+        </div>
+    </div>
+</f:form>

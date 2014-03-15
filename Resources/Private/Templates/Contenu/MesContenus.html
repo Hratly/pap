@@ -1,0 +1,39 @@
+<f:layout name="Default" />
+
+<f:section name="main">
+    <f:format.html>{categories}</f:format.html>
+    <h1>Affichage des contenus</h1>
+
+    <f:flashMessages />
+
+    <f:if condition="{countContenus} == 0">
+        <f:then>
+            Aucun contenu présentement disponible
+        </f:then>
+        <f:else>
+            <table  class="tx_papmarketplace" >
+                <tr>
+                    <th><f:translate key="tx_papmarketplace_domain_model_contenu.nom" /></th>
+                    <th><f:translate key="tx_papmarketplace_domain_model_contenu.date_creation" /></th>
+                    <th><f:translate key="tx_papmarketplace_domain_model_contenu.proprietaire" /></th>
+                    <th><f:translate key="tx_papmarketplace_domain_model_contenu.prix" /></th>
+                    <th> </th>
+                    <th> </th>
+                </tr>
+
+                <f:for each="{contenus}" as="contenu">
+                    <tr>
+                        <td><f:link.action action="show" arguments="{contenu : contenu}"> {contenu.nom}</f:link.action></td>
+                        <td><f:link.action action="show" arguments="{contenu : contenu}"> {contenu.dateCreation -> f:format.date()}</f:link.action></td>
+                        <td><f:link.action action="show" arguments="{contenu : contenu}"> {contenu.proprietaire}</f:link.action></td>
+                        <td><f:link.action action="show" arguments="{contenu : contenu}"> {contenu.prix}</f:link.action></td>
+                        <td><f:link.action action="edit" arguments="{contenu : contenu}">Edit</f:link.action></td>
+                        <td><f:link.action action="delete" arguments="{contenu : contenu}">Delete</f:link.action></td>
+                    </tr>
+                </f:for>
+            </table>
+        </f:else>
+    </f:if>
+
+    <f:link.action action="new">New Contenu</f:link.action>
+</f:section>

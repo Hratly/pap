@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2013-05-18T11:52:23Z" product-name="pap_marketplace">
+		<header/>
+		<body>
+
+			<trans-unit id="utilisateur.description">
+				<source>uid du FE user</source>
+			</trans-unit>
+			<trans-unit id="date_achat.description">
+				<source>dateAchat</source>
+			</trans-unit>
+			<trans-unit id="paye.description">
+				<source>paye</source>
+			</trans-unit>
+			<trans-unit id="contenus.description">
+				<source>contenus</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

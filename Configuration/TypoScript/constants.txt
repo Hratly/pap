@@ -1,0 +1,14 @@
+plugin.tx_papmarketplace {
+	view {
+		# cat=plugin.tx_papmarketplace/file; type=string; label=Path to template root (FE)
+		templateRootPath = EXT:pap_marketplace/Resources/Private/Templates/
+		# cat=plugin.tx_papmarketplace/file; type=string; label=Path to template partials (FE)
+		partialRootPath = EXT:pap_marketplace/Resources/Private/Partials/
+		# cat=plugin.tx_papmarketplace/file; type=string; label=Path to template layouts (FE)
+		layoutRootPath = EXT:pap_marketplace/Resources/Private/Layouts/
+	}
+	persistence {
+		# cat=plugin.tx_papmarketplace//a; type=string; label=Default storage PID
+		storagePid =
+	}
+}

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2013-05-18T11:52:23Z" product-name="pap_marketplace">
+		<header/>
+		<body>
+
+			<trans-unit id="tx_papmarketplace_domain_model_contenu">
+				<source>Contenu</source>
+			</trans-unit>
+			<trans-unit id="tx_papmarketplace_domain_model_contenu.nom">
+				<source>Nom</source>
+			</trans-unit>
+			<trans-unit id="tx_papmarketplace_domain_model_contenu.date_creation">
+				<source>Date Creation</source>
+			</trans-unit>
+			<trans-unit id="tx_papmarketplace_domain_model_contenu.proprietaire">
+				<source>Proprietaire</source>
+			</trans-unit>
+			<trans-unit id="tx_papmarketplace_domain_model_contenu.prix">
+				<source>Prix</source>
+			</trans-unit>
+			<trans-unit id="tx_papmarketplace_domain_model_contenu.image">
+                <source>Image</source>
+            </trans-unit>
+            <trans-unit id="tx_papmarketplace_domain_model_contenu.description">
+                <source>Description</source>
+            </trans-unit>
+			<trans-unit id="tx_papmarketplace_domain_model_contenu.categories">
+				<source>Categories</source>
+			</trans-unit>
+			<trans-unit id="tx_papmarketplace_domain_model_contenu.fichiers">
+				<source>Fichiers</source>
+			</trans-unit>
+			<trans-unit id="tx_papmarketplace_domain_model_contenu.commentaires">
+				<source>Commentaires</source>
+			</trans-unit>
+
+			<trans-unit id="tx_papmarketplace_domain_model_fichier">
+				<source>Fichier</source>
+			</trans-unit>
+			<trans-unit id="tx_papmarketplace_domain_model_fichier.nom">
+				<source>Nom</source>
+			</trans-unit>
+			<trans-unit id="tx_papmarketplace_domain_model_fichier.dossier">
+				<source>Dossier</source>
+			</trans-unit>
+			<trans-unit id="tx_papmarketplace_domain_model_fichier.taille">
+				<source>Taille</source>
+			</trans-unit>
+
+			<trans-unit id="tx_papmarketplace_domain_model_achat">
+				<source>Achat</source>
+			</trans-unit>
+			<trans-unit id="tx_papmarketplace_domain_model_achat.utilisateur">
+				<source>Utilisateur</source>
+			</trans-unit>
+			<trans-unit id="tx_papmarketplace_domain_model_achat.date_achat">
+				<source>Date Achat</source>
+			</trans-unit>
+			<trans-unit id="tx_papmarketplace_domain_model_achat.paye">
+				<source>Paye</source>
+			</trans-unit>
+			<trans-unit id="tx_papmarketplace_domain_model_achat.contenus">
+				<source>Contenus</source>
+			</trans-unit>
+
+			<trans-unit id="tx_papmarketplace_domain_model_categorie">
+				<source>Categorie</source>
+			</trans-unit>
+			<trans-unit id="tx_papmarketplace_domain_model_categorie.nom">
+				<source>Nom</source>
+			</trans-unit>
+			<trans-unit id="tx_papmarketplace_domain_model_categorie.parent">
+				<source>Parent</source>
+			</trans-unit>
+
+			<trans-unit id="tx_papmarketplace_domain_model_commentaire">
+				<source>Commentaire</source>
+			</trans-unit>
+			<trans-unit id="tx_papmarketplace_domain_model_commentaire.utilisateur">
+				<source>Utilisateur</source>
+			</trans-unit>
+			<trans-unit id="tx_papmarketplace_domain_model_commentaire.commentaire">
+				<source>Commentaire</source>
+			</trans-unit>
+			<trans-unit id="tx_papmarketplace_domain_model_commentaire.note">
+				<source>Note</source>
+			</trans-unit>
+
+		</body>
+	</file>
+</xliff>

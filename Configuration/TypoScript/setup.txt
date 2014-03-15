@@ -1,0 +1,41 @@
+plugin.tx_papmarketplace {
+	view {
+		templateRootPath = {$plugin.tx_papmarketplace.view.templateRootPath}
+		partialRootPath = {$plugin.tx_papmarketplace.view.partialRootPath}
+		layoutRootPath = {$plugin.tx_papmarketplace.view.layoutRootPath}
+	}
+	persistence {
+		storagePid = {$plugin.tx_papmarketplace.persistence.storagePid}
+	}
+	features {
+		# uncomment the following line to enable the new Property Mapper.
+		# rewrittenPropertyMapper = 1
+	}
+}
+
+plugin.tx_papmarketplace._CSS_DEFAULT_STYLE (
+	textarea.f3-form-error {
+		background-color:#FF9F9F;
+		border: 1px #FF0000 solid;
+	}
+
+	input.f3-form-error {
+		background-color:#FF9F9F;
+		border: 1px #FF0000 solid;
+	}
+
+	.tx-pap-marketplace table {
+		border-collapse:separate;
+		border-spacing:10px;
+	}
+
+	.tx-pap-marketplace table th {
+		font-weight:bold;
+	}
+
+	.tx-pap-marketplace table td {
+		vertical-align:top;
+	}
+)
+
+page.includeJSFooter.raty = typo3conf/ext/pap_marketplace/Resources/Public/Scripts/jquery.raty.js
