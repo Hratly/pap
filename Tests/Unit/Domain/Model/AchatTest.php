@@ -4,8 +4,7 @@ namespace TYPO3\PapMarketplace\Tests;
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2013 Sébastien Légaré 
- *  			Jérémie Ratomposon 
+ *  (c) 2014 Sébastien Légaré 
  *  			
  *  All rights reserved
  *
@@ -37,7 +36,6 @@ namespace TYPO3\PapMarketplace\Tests;
  * @subpackage PAP Marketplace
  *
  * @author Sébastien Légaré 
- * @author Jérémie Ratomposon 
  */
 class AchatTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	/**
@@ -53,23 +51,6 @@ class AchatTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 		unset($this->fixture);
 	}
 
-	/**
-	 * @test
-	 */
-	public function getUtilisateurReturnsInitialValueForString() { }
-
-	/**
-	 * @test
-	 */
-	public function setUtilisateurForStringSetsUtilisateur() { 
-		$this->fixture->setUtilisateur('Conceived at T3CON10');
-
-		$this->assertSame(
-			'Conceived at T3CON10',
-			$this->fixture->getUtilisateur()
-		);
-	}
-	
 	/**
 	 * @test
 	 */
@@ -147,6 +128,16 @@ class AchatTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 			$this->fixture->getContenus()
 		);
 	}
+	
+	/**
+	 * @test
+	 */
+	public function getUtilisateurReturnsInitialValueForUtilisateur() { }
+
+	/**
+	 * @test
+	 */
+	public function setUtilisateurForUtilisateurSetsUtilisateur() { }
 	
 }
 ?>

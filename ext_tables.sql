@@ -8,13 +8,11 @@ CREATE TABLE tx_papmarketplace_domain_model_contenu (
 
 	nom varchar(255) DEFAULT '' NOT NULL,
 	date_creation int(11) DEFAULT '0' NOT NULL,
-	proprietaire int(11) DEFAULT '0' NOT NULL,
 	prix double(11,2) DEFAULT '0.00' NOT NULL,
-	image varchar(255) DEFAULT '' NOT NULL,
-	description text DEFAULT '' NOT NULL,
 	categories int(11) unsigned DEFAULT '0' NOT NULL,
 	fichiers int(11) unsigned DEFAULT '0' NOT NULL,
 	commentaires int(11) unsigned DEFAULT '0' NOT NULL,
+	proprietaire int(11) unsigned DEFAULT '0',
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -98,10 +96,10 @@ CREATE TABLE tx_papmarketplace_domain_model_achat (
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
 
-	utilisateur varchar(255) DEFAULT '' NOT NULL,
 	date_achat int(11) DEFAULT '0' NOT NULL,
 	paye tinyint(1) unsigned DEFAULT '0' NOT NULL,
 	contenus int(11) unsigned DEFAULT '0' NOT NULL,
+	utilisateur int(11) unsigned DEFAULT '0',
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -184,9 +182,9 @@ CREATE TABLE tx_papmarketplace_domain_model_commentaire (
 
 	contenu int(11) unsigned DEFAULT '0' NOT NULL,
 
-	utilisateur int(11) DEFAULT '0' NOT NULL,
 	commentaire text NOT NULL,
 	note int(11) DEFAULT '0' NOT NULL,
+	utilisateur int(11) unsigned DEFAULT '0',
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -215,6 +213,20 @@ CREATE TABLE tx_papmarketplace_domain_model_commentaire (
 	KEY parent (pid),
 	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
 	KEY language (l10n_parent,sys_language_uid)
+
+);
+
+#
+# Table structure for table 'fe_users'
+#
+CREATE TABLE fe_users (
+
+	organisation varchar(255) DEFAULT '' NOT NULL,
+	presentation text NOT NULL,
+	paypal varchar(255) DEFAULT '' NOT NULL,
+	photo text NOT NULL,
+
+	tx_extbase_type varchar(255) DEFAULT '' NOT NULL,
 
 );
 

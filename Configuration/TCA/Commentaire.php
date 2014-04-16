@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_papmarketplace_domain_model_commentaire'] = array(
 	'ctrl' => $TCA['tx_papmarketplace_domain_model_commentaire']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, utilisateur, commentaire, note',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, commentaire, note, utilisateur',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, utilisateur, commentaire, note,--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,starttime, endtime'),
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, commentaire, note, utilisateur,--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -93,15 +93,6 @@ $TCA['tx_papmarketplace_domain_model_commentaire'] = array(
 				),
 			),
 		),
-		'utilisateur' => array(
-			'exclude' => 0,
-			'label' => 'LLL:EXT:pap_marketplace/Resources/Private/Language/locallang_db.xlf:tx_papmarketplace_domain_model_commentaire.utilisateur',
-			'config' => array(
-				'type' => 'input',
-				'size' => 4,
-				'eval' => 'int'
-			),
-		),
 		'commentaire' => array(
 			'exclude' => 0,
 			'label' => 'LLL:EXT:pap_marketplace/Resources/Private/Language/locallang_db.xlf:tx_papmarketplace_domain_model_commentaire.commentaire',
@@ -119,6 +110,23 @@ $TCA['tx_papmarketplace_domain_model_commentaire'] = array(
 				'type' => 'input',
 				'size' => 4,
 				'eval' => 'int'
+			),
+		),
+		'utilisateur' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:pap_marketplace/Resources/Private/Language/locallang_db.xlf:tx_papmarketplace_domain_model_commentaire.utilisateur',
+			'config' => array(
+				'type' => 'inline',
+				'foreign_table' => 'fe_users',
+				'minitems' => 0,
+				'maxitems' => 1,
+				'appearance' => array(
+					'collapseAll' => 0,
+					'levelLinksPosition' => 'top',
+					'showSynchronizationLink' => 1,
+					'showPossibleLocalizationRecords' => 1,
+					'showAllLocalizationLink' => 1
+				),
 			),
 		),
 		'contenu' => array(

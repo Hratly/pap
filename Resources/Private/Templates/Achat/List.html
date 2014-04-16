@@ -18,7 +18,6 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 <table  class="tx_papmarketplace" >
 	<tr>
-		<th><f:translate key="tx_papmarketplace_domain_model_achat.utilisateur" /></th>
 		<th><f:translate key="tx_papmarketplace_domain_model_achat.date_achat" /></th>
 		<th><f:translate key="tx_papmarketplace_domain_model_achat.paye" /></th>
 		<th> </th>
@@ -27,7 +26,6 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 	<f:for each="{achats}" as="achat">
 		<tr>
-			<td><f:link.action action="show" arguments="{achat : achat}"> {achat.utilisateur}</f:link.action></td>
 			<td><f:link.action action="show" arguments="{achat : achat}"> {achat.dateAchat -> f:format.date()}</f:link.action></td>
 			<td><f:link.action action="show" arguments="{achat : achat}"> {achat.paye}</f:link.action></td>
 			<td><f:link.action action="edit" arguments="{achat : achat}">Edit</f:link.action></td>

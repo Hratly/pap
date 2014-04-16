@@ -8,13 +8,25 @@ if (!defined('TYPO3_MODE')) {
 	'Gestioncontenu',
 	array(
 		'Contenu' => 'list, show, new, edit',
-        'Commentaire' => ''
+		
 	),
 	// non-cacheable actions
 	array(
 		'Contenu' => 'create, update, delete',
-        'Commentaire' => 'create'
+		
 	)
+);
+
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+    'TYPO3.' . $_EXTKEY,
+    'Gestionprofil',
+    array(
+        'Utilisateur' => 'new, edit, afficherConfirmation',
+    ),
+    // non-cacheable actions
+    array(
+        'Utilisateur' => 'create, update',
+    )
 );
 
 ?>

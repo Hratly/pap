@@ -9,16 +9,19 @@ if (!defined('TYPO3_MODE')) {
 	'Gestion du contenu'
 );
 
-
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
     $_EXTKEY,
-    'Affichagecontenu',
-    'Affichage du contenu'
+    'Gestionprofil',
+    'Gestion du profil'
 );
 
 $pluginSignature = str_replace('_','',$_EXTKEY) . '_gestioncontenu';
 $TCA['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue($pluginSignature, 'FILE:EXT:' . $_EXTKEY . '/Configuration/FlexForms/flexform_gestioncontenu.xml');
+
+$pluginSignature = str_replace('_','',$_EXTKEY) . '_gestionprofil';
+$TCA['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue($pluginSignature, 'FILE:EXT:' . $_EXTKEY . '/Configuration/FlexForms/flexform_gestionprofil.xml');
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'PAP Marketplace');
 
@@ -45,7 +48,7 @@ $TCA['tx_papmarketplace_domain_model_contenu'] = array(
 			'starttime' => 'starttime',
 			'endtime' => 'endtime',
 		),
-		'searchFields' => 'nom,date_creation,proprietaire,prix,categories,fichiers,commentaires,',
+		'searchFields' => 'nom,date_creation,prix,categories,fichiers,commentaires,proprietaire,',
 		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/Contenu.php',
 		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_papmarketplace_domain_model_contenu.gif'
 	),
@@ -85,7 +88,7 @@ $TCA['tx_papmarketplace_domain_model_fichier'] = array(
 $TCA['tx_papmarketplace_domain_model_achat'] = array(
 	'ctrl' => array(
 		'title'	=> 'LLL:EXT:pap_marketplace/Resources/Private/Language/locallang_db.xlf:tx_papmarketplace_domain_model_achat',
-		'label' => 'utilisateur',
+		'label' => 'date_achat',
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
 		'cruser_id' => 'cruser_id',
@@ -103,7 +106,7 @@ $TCA['tx_papmarketplace_domain_model_achat'] = array(
 			'starttime' => 'starttime',
 			'endtime' => 'endtime',
 		),
-		'searchFields' => 'utilisateur,date_achat,paye,contenus,',
+		'searchFields' => 'date_achat,paye,contenus,utilisateur,',
 		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/Achat.php',
 		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_papmarketplace_domain_model_achat.gif'
 	),
@@ -143,7 +146,7 @@ $TCA['tx_papmarketplace_domain_model_categorie'] = array(
 $TCA['tx_papmarketplace_domain_model_commentaire'] = array(
 	'ctrl' => array(
 		'title'	=> 'LLL:EXT:pap_marketplace/Resources/Private/Language/locallang_db.xlf:tx_papmarketplace_domain_model_commentaire',
-		'label' => 'utilisateur',
+		'label' => 'commentaire',
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
 		'cruser_id' => 'cruser_id',
@@ -161,10 +164,74 @@ $TCA['tx_papmarketplace_domain_model_commentaire'] = array(
 			'starttime' => 'starttime',
 			'endtime' => 'endtime',
 		),
-		'searchFields' => 'utilisateur,commentaire,note,',
+		'searchFields' => 'commentaire,note,utilisateur,',
 		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/Commentaire.php',
 		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_papmarketplace_domain_model_commentaire.gif'
 	),
 );
+
+$tmp_pap_marketplace_columns = array(
+
+	'organisation' => array(
+		'exclude' => 0,
+		'label' => 'LLL:EXT:pap_marketplace/Resources/Private/Language/locallang_db.xlf:tx_papmarketplace_domain_model_utilisateur.organisation',
+		'config' => array(
+			'type' => 'input',
+			'size' => 30,
+			'eval' => 'trim'
+		),
+	),
+	'presentation' => array(
+		'exclude' => 0,
+		'label' => 'LLL:EXT:pap_marketplace/Resources/Private/Language/locallang_db.xlf:tx_papmarketplace_domain_model_utilisateur.presentation',
+		'config' => array(
+			'type' => 'text',
+			'cols' => 40,
+			'rows' => 15,
+			'eval' => 'trim',
+			'wizards' => array(
+				'RTE' => array(
+					'icon' => 'wizard_rte2.gif',
+					'notNewRecords'=> 1,
+					'RTEonly' => 1,
+					'script' => 'wizard_rte.php',
+					'title' => 'LLL:EXT:cms/locallang_ttc.:bodytext.W.RTE',
+					'type' => 'script'
+				)
+			)
+		),
+		'defaultExtras' => 'richtext[]',
+	),
+	'paypal' => array(
+		'exclude' => 0,
+		'label' => 'LLL:EXT:pap_marketplace/Resources/Private/Language/locallang_db.xlf:tx_papmarketplace_domain_model_utilisateur.paypal',
+		'config' => array(
+			'type' => 'input',
+			'size' => 30,
+			'eval' => 'trim'
+		),
+	),
+	'photo' => array(
+		'exclude' => 0,
+		'label' => 'LLL:EXT:pap_marketplace/Resources/Private/Language/locallang_db.xlf:tx_papmarketplace_domain_model_utilisateur.photo',
+		'config' => array(
+			'type' => 'group',
+			'internal_type' => 'file',
+			'uploadfolder' => 'uploads/tx_papmarketplace',
+			'show_thumbs' => 1,
+			'size' => 5,
+			'allowed' => $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'],
+			'disallowed' => '',
+		),
+	),
+);
+
+t3lib_extMgm::addTCAcolumns('fe_users',$tmp_pap_marketplace_columns);
+
+$TCA['fe_users']['columns'][$TCA['fe_users']['ctrl']['type']]['config']['items'][] = array('LLL:EXT:pap_marketplace/Resources/Private/Language/locallang_db.xlf:fe_users.tx_extbase_type.Tx_PapMarketplace_Utilisateur','Tx_PapMarketplace_Utilisateur');
+
+$TCA['fe_users']['types']['Tx_PapMarketplace_Utilisateur']['showitem'] = $TCA['fe_users']['types']['1']['showitem'];
+$TCA['fe_users']['types']['Tx_PapMarketplace_Utilisateur']['showitem'] .= ',--div--;LLL:EXT:pap_marketplace/Resources/Private/Language/locallang_db.xlf:tx_papmarketplace_domain_model_utilisateur,';
+$TCA['fe_users']['types']['Tx_PapMarketplace_Utilisateur']['showitem'] .= '--div--organisation, presentation, paypal, photo';
 
 ?>

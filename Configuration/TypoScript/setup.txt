@@ -11,6 +11,7 @@ plugin.tx_papmarketplace {
 		# uncomment the following line to enable the new Property Mapper.
 		# rewrittenPropertyMapper = 1
 	}
+	settings.utilisateurPid = 12
 }
 
 plugin.tx_papmarketplace._CSS_DEFAULT_STYLE (
@@ -37,5 +38,3 @@ plugin.tx_papmarketplace._CSS_DEFAULT_STYLE (
 		vertical-align:top;
 	}
 )
-
-page.includeJSFooter.raty = typo3conf/ext/pap_marketplace/Resources/Public/Scripts/jquery.raty.js

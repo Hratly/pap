@@ -4,8 +4,7 @@ namespace TYPO3\PapMarketplace\Tests;
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2013 Sébastien Légaré 
- *  			Jérémie Ratomposon 
+ *  (c) 2014 Sébastien Légaré 
  *  			
  *  All rights reserved
  *
@@ -37,7 +36,6 @@ namespace TYPO3\PapMarketplace\Tests;
  * @subpackage PAP Marketplace
  *
  * @author Sébastien Légaré 
- * @author Jérémie Ratomposon 
  */
 class CommentaireTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	/**
@@ -53,28 +51,6 @@ class CommentaireTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 		unset($this->fixture);
 	}
 
-	/**
-	 * @test
-	 */
-	public function getUtilisateurReturnsInitialValueForInteger() { 
-		$this->assertSame(
-			0,
-			$this->fixture->getUtilisateur()
-		);
-	}
-
-	/**
-	 * @test
-	 */
-	public function setUtilisateurForIntegerSetsUtilisateur() { 
-		$this->fixture->setUtilisateur(12);
-
-		$this->assertSame(
-			12,
-			$this->fixture->getUtilisateur()
-		);
-	}
-	
 	/**
 	 * @test
 	 */
@@ -113,6 +89,16 @@ class CommentaireTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 			$this->fixture->getNote()
 		);
 	}
+	
+	/**
+	 * @test
+	 */
+	public function getUtilisateurReturnsInitialValueForUtilisateur() { }
+
+	/**
+	 * @test
+	 */
+	public function setUtilisateurForUtilisateurSetsUtilisateur() { }
 	
 }
 ?>

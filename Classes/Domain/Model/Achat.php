@@ -4,8 +4,7 @@ namespace TYPO3\PapMarketplace\Domain\Model;
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2013 Sébastien Légaré 
- *  Jérémie Ratomposon 
+ *  (c) 2014 Sébastien Légaré 
  *  
  *  All rights reserved
  *
@@ -36,13 +35,6 @@ namespace TYPO3\PapMarketplace\Domain\Model;
 class Achat extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
-	 * uid du FE user
-	 *
-	 * @var \string
-	 */
-	protected $utilisateur;
-
-	/**
 	 * dateAchat
 	 *
 	 * @var \DateTime
@@ -62,6 +54,13 @@ class Achat extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\PapMarketplace\Domain\Model\Contenu>
 	 */
 	protected $contenus;
+
+	/**
+	 * utilisateur
+	 *
+	 * @var \TYPO3\PapMarketplace\Domain\Model\Utilisateur
+	 */
+	protected $utilisateur;
 
 	/**
 	 * __construct
@@ -85,25 +84,6 @@ class Achat extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		 * You may modify the constructor of this class instead
 		 */
 		$this->contenus = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-	}
-
-	/**
-	 * Returns the utilisateur
-	 *
-	 * @return \string $utilisateur
-	 */
-	public function getUtilisateur() {
-		return $this->utilisateur;
-	}
-
-	/**
-	 * Sets the utilisateur
-	 *
-	 * @param \string $utilisateur
-	 * @return void
-	 */
-	public function setUtilisateur($utilisateur) {
-		$this->utilisateur = $utilisateur;
 	}
 
 	/**
@@ -190,6 +170,25 @@ class Achat extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setContenus(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $contenus) {
 		$this->contenus = $contenus;
+	}
+
+	/**
+	 * Returns the utilisateur
+	 *
+	 * @return \TYPO3\PapMarketplace\Domain\Model\Utilisateur $utilisateur
+	 */
+	public function getUtilisateur() {
+		return $this->utilisateur;
+	}
+
+	/**
+	 * Sets the utilisateur
+	 *
+	 * @param \TYPO3\PapMarketplace\Domain\Model\Utilisateur $utilisateur
+	 * @return void
+	 */
+	public function setUtilisateur(\TYPO3\PapMarketplace\Domain\Model\Utilisateur $utilisateur) {
+		$this->utilisateur = $utilisateur;
 	}
 
 }

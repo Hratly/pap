@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-03-17T17:13:53Z" product-name="pap_marketplace">
+		<header/>
+		<body>
+
+			<trans-unit id="organisation.description">
+				<source>organisation</source>
+			</trans-unit>
+			<trans-unit id="presentation.description">
+				<source>presentation</source>
+			</trans-unit>
+			<trans-unit id="paypal.description">
+				<source>paypal</source>
+			</trans-unit>
+			<trans-unit id="photo.description">
+				<source>photo</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

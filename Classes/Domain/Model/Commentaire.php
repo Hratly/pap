@@ -4,8 +4,7 @@ namespace TYPO3\PapMarketplace\Domain\Model;
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2013 Sébastien Légaré 
- *  Jérémie Ratomposon 
+ *  (c) 2014 Sébastien Légaré 
  *  
  *  All rights reserved
  *
@@ -36,13 +35,6 @@ namespace TYPO3\PapMarketplace\Domain\Model;
 class Commentaire extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
-	 * uid du fe user
-	 *
-	 * @var \integer
-	 */
-	protected $utilisateur;
-
-	/**
 	 * commentaire
 	 *
 	 * @var \string
@@ -57,23 +49,11 @@ class Commentaire extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $note;
 
 	/**
-	 * Returns the utilisateur
+	 * utilisateur
 	 *
-	 * @return \integer $utilisateur
+	 * @var \TYPO3\PapMarketplace\Domain\Model\Utilisateur
 	 */
-	public function getUtilisateur() {
-		return $this->utilisateur;
-	}
-
-	/**
-	 * Sets the utilisateur
-	 *
-	 * @param \integer $utilisateur
-	 * @return void
-	 */
-	public function setUtilisateur($utilisateur) {
-		$this->utilisateur = $utilisateur;
-	}
+	protected $utilisateur;
 
 	/**
 	 * Returns the commentaire
@@ -111,6 +91,25 @@ class Commentaire extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setNote($note) {
 		$this->note = $note;
+	}
+
+	/**
+	 * Returns the utilisateur
+	 *
+	 * @return \TYPO3\PapMarketplace\Domain\Model\Utilisateur $utilisateur
+	 */
+	public function getUtilisateur() {
+		return $this->utilisateur;
+	}
+
+	/**
+	 * Sets the utilisateur
+	 *
+	 * @param \TYPO3\PapMarketplace\Domain\Model\Utilisateur $utilisateur
+	 * @return void
+	 */
+	public function setUtilisateur(\TYPO3\PapMarketplace\Domain\Model\Utilisateur $utilisateur) {
+		$this->utilisateur = $utilisateur;
 	}
 
 }

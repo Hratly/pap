@@ -18,7 +18,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 <f:render partial="FormErrors" arguments="{object:Fichier}"/>
 
-<f:form action="create"  name="newFichier" object="{newFichier}">
+<f:form action="create"  enctype="multipart/form-data"  name="newFichier" object="{newFichier}">
 <f:render partial="Fichier/FormFields" />
 	<f:form.submit value="Create new" />
 </f:form>

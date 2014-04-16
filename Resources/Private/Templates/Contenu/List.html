@@ -1,26 +1,40 @@
 <f:layout name="Default" />
 
+This Template is responsible for creating a table of domain objects.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        List.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
 <f:section name="main">
-<f:format.html>{categories}</f:format.html>
-<h1>Affichage des contenus</h1>
+<h1>Listing for Contenu</h1>
 
 <f:flashMessages />
 
-<f:if condition="{countContenus} == 0">
-    <f:then>
-        Aucun contenu présentement disponible
-    </f:then>
-    <f:else>
-        <f:for each="{contenus}" as="contenu">
-            <div class="container">
-                <f:image src="{contenu.image}" alt="Présentation du contenu"/>
-                {contenu.prix}$<br/>
-                <f:link.action action="show" arguments="{contenu : contenu}"><h3>{contenu.nom} :</h3>
-                {contenu.description}</f:link.action>
-            </div>
-        </f:for>
-    </f:else>
-</f:if>
+<table  class="tx_papmarketplace" >
+	<tr>
+		<th><f:translate key="tx_papmarketplace_domain_model_contenu.nom" /></th>
+		<th><f:translate key="tx_papmarketplace_domain_model_contenu.date_creation" /></th>
+		<th><f:translate key="tx_papmarketplace_domain_model_contenu.prix" /></th>
+		<th> </th>
+		<th> </th>
+	</tr>
 
-<f:link.action action="new" class="btn">Ajouter un nouveau contenu</f:link.action>
+	<f:for each="{contenus}" as="contenu">
+		<tr>
+			<td><f:link.action action="show" arguments="{contenu : contenu}"> {contenu.nom}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{contenu : contenu}"> {contenu.dateCreation -> f:format.date()}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{contenu : contenu}"> {contenu.prix}</f:link.action></td>
+			<td><f:link.action action="edit" arguments="{contenu : contenu}">Edit</f:link.action></td>
+			<td><f:link.action action="delete" arguments="{contenu : contenu}">Delete</f:link.action></td>
+		</tr>
+	</f:for>
+</table>
+
+<f:link.action action="new">New Contenu</f:link.action>
 </f:section>

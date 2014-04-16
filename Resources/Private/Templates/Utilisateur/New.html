@@ -1,0 +1,16 @@
+{namespace pap=TYPO3\PapMarketplace\ViewHelpers}
+<f:layout name="Default" />
+
+<f:section name="main">
+
+<pap:flashMessages />
+
+<h2>Inscrivez-vous gratuitement</h2>
+
+<f:render partial="FormErrors" arguments="{object:Utilisateur}"/>
+
+<f:form action="create"  enctype="multipart/form-data"  name="newUtilisateur" object="{newUtilisateur}">
+    <f:render partial="Utilisateur/FormFields" />
+    <f:form.submit value="Soumettre" />
+</f:form>
+</f:section>

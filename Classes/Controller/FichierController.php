@@ -4,8 +4,7 @@ namespace TYPO3\PapMarketplace\Controller;
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2013 Sébastien Légaré 
- *  Jérémie Ratomposon 
+ *  (c) 2014 Sébastien Légaré 
  *  
  *  All rights reserved
  *

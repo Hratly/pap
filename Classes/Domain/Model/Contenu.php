@@ -4,8 +4,7 @@ namespace TYPO3\PapMarketplace\Domain\Model;
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2013 Sébastien Légaré 
- *  Jérémie Ratomposon 
+ *  (c) 2014 Sébastien Légaré 
  *  
  *  All rights reserved
  *
@@ -43,42 +42,21 @@ class Contenu extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	protected $nom;
 
-    /**
-     * description
-     *
-     * @var \string
-     * @validate NotEmpty
-     */
-    protected $description;
-
 	/**
 	 * dateCreation
 	 *
 	 * @var \DateTime
+	 * @validate NotEmpty
 	 */
 	protected $dateCreation;
 
 	/**
-	 * uid du FE User proprietaire
-	 *
-	 * @var \integer
-	 * @validate NotEmpty
-	 */
-	protected $proprietaire;
-
-	/**
-	 * prix
+	 * proprietaire
 	 *
 	 * @var \float
 	 * @validate NotEmpty
 	 */
 	protected $prix;
-
-    /**
-     * image
-     * @var \string
-     */
-    protected $image;
 
 	/**
 	 * categories
@@ -100,6 +78,13 @@ class Contenu extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\PapMarketplace\Domain\Model\Commentaire>
 	 */
 	protected $commentaires;
+
+	/**
+	 * proprietaire
+	 *
+	 * @var \TYPO3\PapMarketplace\Domain\Model\Utilisateur
+	 */
+	protected $proprietaire;
 
 	/**
 	 * __construct
@@ -148,25 +133,6 @@ class Contenu extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		$this->nom = $nom;
 	}
 
-    /**
-     * Returns the description
-     *
-     * @return \string $description
-     */
-    public function getDescription() {
-        return $this->description;
-    }
-
-    /**
-     * Sets the description
-     *
-     * @param \string $description
-     * @return void
-     */
-    public function setDescription($description) {
-        $this->description = $description;
-    }
-
 	/**
 	 * Returns the dateCreation
 	 *
@@ -187,25 +153,6 @@ class Contenu extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	}
 
 	/**
-	 * Returns the proprietaire
-	 *
-	 * @return \integer $proprietaire
-	 */
-	public function getProprietaire() {
-		return $this->proprietaire;
-	}
-
-	/**
-	 * Sets the proprietaire
-	 *
-	 * @param \integer $proprietaire
-	 * @return void
-	 */
-	public function setProprietaire($proprietaire) {
-		$this->proprietaire = $proprietaire;
-	}
-
-	/**
 	 * Returns the prix
 	 *
 	 * @return \float $prix
@@ -223,20 +170,6 @@ class Contenu extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	public function setPrix($prix) {
 		$this->prix = $prix;
 	}
-
-    /**
-     * @param mixed $image
-     */
-    public function setImage($image) {
-        $this->image = $image;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getImage() {
-        return $this->image;
-    }
 
 	/**
 	 * Adds a Categorie
@@ -353,6 +286,25 @@ class Contenu extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setCommentaires(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $commentaires) {
 		$this->commentaires = $commentaires;
+	}
+
+	/**
+	 * Returns the proprietaire
+	 *
+	 * @return \TYPO3\PapMarketplace\Domain\Model\Utilisateur $proprietaire
+	 */
+	public function getProprietaire() {
+		return $this->proprietaire;
+	}
+
+	/**
+	 * Sets the proprietaire
+	 *
+	 * @param \TYPO3\PapMarketplace\Domain\Model\Utilisateur $proprietaire
+	 * @return void
+	 */
+	public function setProprietaire(\TYPO3\PapMarketplace\Domain\Model\Utilisateur $proprietaire) {
+		$this->proprietaire = $proprietaire;
 	}
 
 }

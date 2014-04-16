@@ -4,8 +4,7 @@ namespace TYPO3\PapMarketplace\Domain\Repository;
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2013 Sébastien Légaré 
- *  Jérémie Ratomposon 
+ *  (c) 2014 Sébastien Légaré 
  *  
  *  All rights reserved
  *
@@ -35,14 +34,5 @@ namespace TYPO3\PapMarketplace\Domain\Repository;
  */
 class ContenuRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 
-    /*
-     * Retourne tous les contenus qui contienne une categorie
-     * @param \TYPO3\PapMarketplace\Domain\Model\Categorie $categorie
-     * @return mixed
-     */
-    public function findByCategorie(\TYPO3\PapMarketplace\Domain\Model\Categorie $categorie) {
-        $query = $this->createQuery();
-        return $query->matching($query->contains('categories',$categorie))->execute();
-    }
 }
 ?>

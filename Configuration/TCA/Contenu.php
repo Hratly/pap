@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_papmarketplace_domain_model_contenu'] = array(
 	'ctrl' => $TCA['tx_papmarketplace_domain_model_contenu']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, nom, description, date_creation, proprietaire, prix, categories, image, fichiers, commentaires',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, nom, date_creation, prix, categories, fichiers, commentaires, proprietaire',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, nom, description, date_creation, proprietaire, prix, categories, image, fichiers, commentaires,--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,starttime, endtime'),
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, nom, date_creation, prix, categories, fichiers, commentaires, proprietaire,--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -113,15 +113,6 @@ $TCA['tx_papmarketplace_domain_model_contenu'] = array(
 				'default' => time()
 			),
 		),
-		'proprietaire' => array(
-			'exclude' => 0,
-			'label' => 'LLL:EXT:pap_marketplace/Resources/Private/Language/locallang_db.xlf:tx_papmarketplace_domain_model_contenu.proprietaire',
-			'config' => array(
-				'type' => 'input',
-				'size' => 4,
-				'eval' => 'int,required'
-			),
-		),
 		'prix' => array(
 			'exclude' => 0,
 			'label' => 'LLL:EXT:pap_marketplace/Resources/Private/Language/locallang_db.xlf:tx_papmarketplace_domain_model_contenu.prix',
@@ -131,25 +122,6 @@ $TCA['tx_papmarketplace_domain_model_contenu'] = array(
 				'eval' => 'double2,required'
 			),
 		),
-        'image' => array(
-            'exclude' => 0,
-            'label' => 'LLL:EXT:pap_marketplace/Resources/Private/Language/locallang_db.xlf:tx_papmarketplace_domain_model_contenu.image',
-            'config' => array(
-                'type' => 'input',
-                'size' => 30,
-                'eval' => 'trim'
-            ),
-        ),
-        'description' => array(
-            'exclude' => 0,
-            'label' => 'LLL:EXT:pap_marketplace/Resources/Private/Language/locallang_db.xlf:tx_papmarketplace_domain_model_contenu.description',
-            'config' => array(
-                'type' => 'text',
-                'cols' => 40,
-                'rows' => 15,
-                'eval' => 'trim'
-            ),
-        ),
 		'categories' => array(
 			'exclude' => 0,
 			'label' => 'LLL:EXT:pap_marketplace/Resources/Private/Language/locallang_db.xlf:tx_papmarketplace_domain_model_contenu.categories',
@@ -211,6 +183,23 @@ $TCA['tx_papmarketplace_domain_model_contenu'] = array(
 				'foreign_table' => 'tx_papmarketplace_domain_model_commentaire',
 				'foreign_field' => 'contenu',
 				'maxitems'      => 9999,
+				'appearance' => array(
+					'collapseAll' => 0,
+					'levelLinksPosition' => 'top',
+					'showSynchronizationLink' => 1,
+					'showPossibleLocalizationRecords' => 1,
+					'showAllLocalizationLink' => 1
+				),
+			),
+		),
+		'proprietaire' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:pap_marketplace/Resources/Private/Language/locallang_db.xlf:tx_papmarketplace_domain_model_contenu.proprietaire',
+			'config' => array(
+				'type' => 'inline',
+				'foreign_table' => 'fe_users',
+				'minitems' => 0,
+				'maxitems' => 1,
 				'appearance' => array(
 					'collapseAll' => 0,
 					'levelLinksPosition' => 'top',

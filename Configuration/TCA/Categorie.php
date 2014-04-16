@@ -106,13 +106,10 @@ $TCA['tx_papmarketplace_domain_model_categorie'] = array(
 			'exclude' => 0,
 			'label' => 'LLL:EXT:pap_marketplace/Resources/Private/Language/locallang_db.xlf:tx_papmarketplace_domain_model_categorie.parent',
 			'config' => array(
-				'type' => 'select',
+				'type' => 'inline',
 				'foreign_table' => 'tx_papmarketplace_domain_model_categorie',
 				'minitems' => 0,
 				'maxitems' => 1,
-                'items' => Array (
-                    Array('',0),
-                ),
 				'appearance' => array(
 					'collapseAll' => 0,
 					'levelLinksPosition' => 'top',

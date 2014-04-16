@@ -4,7 +4,7 @@ namespace TYPO3\PapMarketplace\Controller;
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2013 Sébastien Légaré
+ *  (c) 2014 Sébastien Légaré 
  *  
  *  All rights reserved
  *
@@ -35,12 +35,12 @@ namespace TYPO3\PapMarketplace\Controller;
 class CommentaireController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
 
 	/**
-	 * contenuRepository
+	 * commentaireRepository
 	 *
-	 * @var \TYPO3\PapMarketplace\Domain\Repository\ContenuRepository
+	 * @var \TYPO3\PapMarketplace\Domain\Repository\CommentaireRepository
 	 * @inject
 	 */
-	protected $contenuRepository;
+	protected $commentaireRepository;
 
 	/**
 	 * action list
@@ -70,10 +70,9 @@ class CommentaireController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
 	 * @return void
 	 */
 	public function createAction(\TYPO3\PapMarketplace\Domain\Model\Commentaire $newCommentaire) {
-		$contenu = $this->contenuRepository->findOneByUid($this->request->getArgument("contenu"));
-        $contenu->addCommentaire($newCommentaire);
-        $this->contenuRepository->update($contenu);
-		$this->redirect('show','Contenu',array("contenu" => $contenu));
+		$this->commentaireRepository->add($newCommentaire);
+		$this->flashMessageContainer->add('Your new Commentaire was created.');
+		$this->redirect('list');
 	}
 
 	/**

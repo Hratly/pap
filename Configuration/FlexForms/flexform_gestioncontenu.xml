@@ -19,7 +19,7 @@
 									</numIndex>
 									<numIndex index="1">
 										<numIndex index="0">Gestion du contenu</numIndex>
-										<numIndex index="1">Contenu->list;Contenu->show;Contenu->new;Contenu->edit;Contenu->create;Contenu->update;Contenu->delete;Commentaire->create;</numIndex>
+										<numIndex index="1">Contenu->new;Contenu->edit;Contenu->create;Contenu->update</numIndex>
 									</numIndex>
 								</items>
 							</config>

@@ -1,0 +1,20 @@
+config.tx_extbase{
+    persistence{
+        classes{
+
+            TYPO3\CMS\Extbase\Domain\Model\FrontendUser {
+                subclasses {
+                    Tx_PapMarketplace_Utilisateur = TYPO3\PapMarketplace\Domain\Model\Utilisateur
+					
+          		}
+            }
+            TYPO3\PapMarketplace\Domain\Model\Utilisateur {
+                mapping {
+                    tableName = fe_users
+                    recordType = Tx_PapMarketplace_Utilisateur
+                }
+            }
+            
+    	}
+    }
+}

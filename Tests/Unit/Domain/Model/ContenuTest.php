@@ -4,8 +4,7 @@ namespace TYPO3\PapMarketplace\Tests;
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2013 Sébastien Légaré 
- *  			Jérémie Ratomposon 
+ *  (c) 2014 Sébastien Légaré 
  *  			
  *  All rights reserved
  *
@@ -37,7 +36,6 @@ namespace TYPO3\PapMarketplace\Tests;
  * @subpackage PAP Marketplace
  *
  * @author Sébastien Légaré 
- * @author Jérémie Ratomposon 
  */
 class ContenuTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	/**
@@ -79,28 +77,6 @@ class ContenuTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	 * @test
 	 */
 	public function setDateCreationForDateTimeSetsDateCreation() { }
-	
-	/**
-	 * @test
-	 */
-	public function getProprietaireReturnsInitialValueForInteger() { 
-		$this->assertSame(
-			0,
-			$this->fixture->getProprietaire()
-		);
-	}
-
-	/**
-	 * @test
-	 */
-	public function setProprietaireForIntegerSetsProprietaire() { 
-		$this->fixture->setProprietaire(12);
-
-		$this->assertSame(
-			12,
-			$this->fixture->getProprietaire()
-		);
-	}
 	
 	/**
 	 * @test
@@ -297,6 +273,16 @@ class ContenuTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 			$this->fixture->getCommentaires()
 		);
 	}
+	
+	/**
+	 * @test
+	 */
+	public function getProprietaireReturnsInitialValueForUtilisateur() { }
+
+	/**
+	 * @test
+	 */
+	public function setProprietaireForUtilisateurSetsProprietaire() { }
 	
 }
 ?>

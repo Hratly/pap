@@ -3,8 +3,7 @@ namespace TYPO3\PapMarketplace\Tests;
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2013 Sébastien Légaré 
- *  			Jérémie Ratomposon 
+ *  (c) 2014 Sébastien Légaré 
  *  			
  *  All rights reserved
  *
@@ -36,7 +35,6 @@ namespace TYPO3\PapMarketplace\Tests;
  * @subpackage PAP Marketplace
  *
  * @author Sébastien Légaré 
- * @author Jérémie Ratomposon 
  */
 class CategorieControllerTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	/**
