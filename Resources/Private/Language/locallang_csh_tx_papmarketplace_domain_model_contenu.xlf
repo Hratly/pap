@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2014-03-17T17:13:53Z" product-name="pap_marketplace">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-04-21T18:56:41Z" product-name="pap_marketplace">
 		<header/>
 		<body>
 
@@ -11,7 +11,13 @@
 				<source>dateCreation</source>
 			</trans-unit>
 			<trans-unit id="prix.description">
-				<source>proprietaire</source>
+				<source>prix</source>
+			</trans-unit>
+			<trans-unit id="image.description">
+				<source>image</source>
+			</trans-unit>
+			<trans-unit id="description.description">
+				<source>description</source>
 			</trans-unit>
 			<trans-unit id="categories.description">
 				<source>categories</source>
@@ -24,6 +30,9 @@
 			</trans-unit>
 			<trans-unit id="proprietaire.description">
 				<source>proprietaire</source>
+			</trans-unit>
+			<trans-unit id="niveau.description">
+				<source>niveau</source>
 			</trans-unit>
 		</body>
 	</file>

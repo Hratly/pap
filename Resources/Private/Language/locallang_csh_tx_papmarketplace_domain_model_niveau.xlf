@@ -7,12 +7,6 @@
 			<trans-unit id="nom.description">
 				<source>nom</source>
 			</trans-unit>
-			<trans-unit id="dossier.description">
-				<source>dossier</source>
-			</trans-unit>
-			<trans-unit id="taille.description">
-				<source>taille</source>
-			</trans-unit>
 		</body>
 	</file>
 </xliff>

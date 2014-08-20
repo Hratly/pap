@@ -1,26 +1,40 @@
-<table class="tx-pap-marketplace" >
-	<tr>
-		<td>
-			<f:translate key="tx_papmarketplace_domain_model_contenu.nom" />
-		</td>
-		<td>
-			{contenu.nom}
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<f:translate key="tx_papmarketplace_domain_model_contenu.date_creation" />
-		</td>
-		<td>
-			{contenu.dateCreation -> f:format.date()}
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<f:translate key="tx_papmarketplace_domain_model_contenu.prix" />
-		</td>
-		<td>
-			{contenu.prix}
-		</td>
-	</tr>
-</table>
+<div class="form-group">
+    <label class="col-sm-4">Prix :</label>
+    <div class="prix col-sm-8">
+        <f:if condition="{contenu.prix} == 0">
+            <f:then>
+                Gratuit
+            </f:then>
+            <f:else>
+                {contenu.prix}$
+            </f:else>
+        </f:if>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-4">Date d'ajout :</label>
+    <div class="col-sm-8">
+        {contenu.dateCreation -> f:format.date()}
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-4">Description :</label>
+    <div class="col-sm-8">
+        <f:format.html>{contenu.description}</f:format.html>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-4">Détails du téléchargement :</label>
+    <div class="col-sm-8">
+        <ul>
+            <f:for each="{contenu.fichiers}" as="fichier">
+                <li>{fichier.nom} ({fichier.formatTaille})</li>
+            </f:for>
+        </ul>
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-sm-12" style="text-align:center;">
+        <f:link.action action="acheter" class="button" arguments="{contenu:contenu}">Acheter</f:link.action>
+    </div>
+</div>

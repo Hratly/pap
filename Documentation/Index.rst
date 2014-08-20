@@ -17,8 +17,8 @@ Extension Name
 :Description: manuals covering TYPO3 extension "PAP Marketplace"
 :Language: en
 :Author: Sébastien Légaré
-:Creation: 2014-03-17
-:Generation: 17:14
+:Creation: 2014-04-21
+:Generation: 18:56
 :Licence: Open Content License available from `www.opencontent.org/opl.shtml <http://www.opencontent.org/opl.shtml>`_
 
 The content of this document is related to TYPO3, a GNU/GPL CMS/Framework available from `www.typo3.org

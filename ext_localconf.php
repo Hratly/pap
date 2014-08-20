@@ -17,16 +17,4 @@ if (!defined('TYPO3_MODE')) {
 	)
 );
 
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'TYPO3.' . $_EXTKEY,
-    'Gestionprofil',
-    array(
-        'Utilisateur' => 'new, edit, afficherConfirmation',
-    ),
-    // non-cacheable actions
-    array(
-        'Utilisateur' => 'create, update',
-    )
-);
-
 ?>

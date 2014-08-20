@@ -38,7 +38,6 @@ class Contenu extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * nom
 	 *
 	 * @var \string
-	 * @validate NotEmpty
 	 */
 	protected $nom;
 
@@ -46,17 +45,30 @@ class Contenu extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * dateCreation
 	 *
 	 * @var \DateTime
-	 * @validate NotEmpty
 	 */
 	protected $dateCreation;
 
 	/**
-	 * proprietaire
+	 * prix
 	 *
 	 * @var \float
-	 * @validate NotEmpty
 	 */
 	protected $prix;
+
+	/**
+	 * image
+	 *
+	 * @var \string
+	 */
+	protected $image;
+
+	/**
+	 * description
+	 *
+	 * @var \string
+     *
+	 */
+	protected $description;
 
 	/**
 	 * categories
@@ -87,6 +99,13 @@ class Contenu extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $proprietaire;
 
 	/**
+	 * niveau
+	 *
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\PapMarketplace\Domain\Model\Niveau>
+	 */
+	protected $niveau;
+
+	/**
 	 * __construct
 	 *
 	 * @return Contenu
@@ -112,6 +131,8 @@ class Contenu extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		$this->fichiers = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		
 		$this->commentaires = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		
+		$this->niveau = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 	}
 
 	/**
@@ -169,6 +190,44 @@ class Contenu extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setPrix($prix) {
 		$this->prix = $prix;
+	}
+
+	/**
+	 * Returns the image
+	 *
+	 * @return \string $image
+	 */
+	public function getImage() {
+		return $this->image;
+	}
+
+	/**
+	 * Sets the image
+	 *
+	 * @param \string $image
+	 * @return void
+	 */
+	public function setImage($image) {
+		$this->image = $image;
+	}
+
+	/**
+	 * Returns the description
+	 *
+	 * @return \string $description
+	 */
+	public function getDescription() {
+		return $this->description;
+	}
+
+	/**
+	 * Sets the description
+	 *
+	 * @param \string $description
+	 * @return void
+	 */
+	public function setDescription($description) {
+		$this->description = $description;
 	}
 
 	/**
@@ -305,6 +364,45 @@ class Contenu extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setProprietaire(\TYPO3\PapMarketplace\Domain\Model\Utilisateur $proprietaire) {
 		$this->proprietaire = $proprietaire;
+	}
+
+	/**
+	 * Adds a Niveau
+	 *
+	 * @param \TYPO3\PapMarketplace\Domain\Model\Niveau $niveau
+	 * @return void
+	 */
+	public function addNiveau(\TYPO3\PapMarketplace\Domain\Model\Niveau $niveau) {
+		$this->niveau->attach($niveau);
+	}
+
+	/**
+	 * Removes a Niveau
+	 *
+	 * @param \TYPO3\PapMarketplace\Domain\Model\Niveau $niveauToRemove The Niveau to be removed
+	 * @return void
+	 */
+	public function removeNiveau(\TYPO3\PapMarketplace\Domain\Model\Niveau $niveauToRemove) {
+		$this->niveau->detach($niveauToRemove);
+	}
+
+	/**
+	 * Returns the niveau
+	 *
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\PapMarketplace\Domain\Model\Niveau> $niveau
+	 */
+	public function getNiveau() {
+		return $this->niveau;
+	}
+
+	/**
+	 * Sets the niveau
+	 *
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\PapMarketplace\Domain\Model\Niveau> $niveau
+	 * @return void
+	 */
+	public function setNiveau(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $niveau) {
+		$this->niveau = $niveau;
 	}
 
 }

@@ -11,7 +11,7 @@ plugin.tx_papmarketplace {
 		# uncomment the following line to enable the new Property Mapper.
 		# rewrittenPropertyMapper = 1
 	}
-	settings.utilisateurPid = 12
+	settings.uidSingle = 11
 }
 
 plugin.tx_papmarketplace._CSS_DEFAULT_STYLE (
@@ -38,3 +38,5 @@ plugin.tx_papmarketplace._CSS_DEFAULT_STYLE (
 		vertical-align:top;
 	}
 )
+
+page.includeCSS.100 = typo3conf/ext/pap_marketplace/Resources/Public/Styles/pap_marketplace.css

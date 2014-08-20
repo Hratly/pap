@@ -21,6 +21,8 @@ Otherwise your changes will be overwritten the next time you save the extension 
 		<th><f:translate key="tx_papmarketplace_domain_model_contenu.nom" /></th>
 		<th><f:translate key="tx_papmarketplace_domain_model_contenu.date_creation" /></th>
 		<th><f:translate key="tx_papmarketplace_domain_model_contenu.prix" /></th>
+		<th><f:translate key="tx_papmarketplace_domain_model_contenu.image" /></th>
+		<th><f:translate key="tx_papmarketplace_domain_model_contenu.description" /></th>
 		<th> </th>
 		<th> </th>
 	</tr>
@@ -30,6 +32,8 @@ Otherwise your changes will be overwritten the next time you save the extension 
 			<td><f:link.action action="show" arguments="{contenu : contenu}"> {contenu.nom}</f:link.action></td>
 			<td><f:link.action action="show" arguments="{contenu : contenu}"> {contenu.dateCreation -> f:format.date()}</f:link.action></td>
 			<td><f:link.action action="show" arguments="{contenu : contenu}"> {contenu.prix}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{contenu : contenu}"> {contenu.image}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{contenu : contenu}"> {contenu.description}</f:link.action></td>
 			<td><f:link.action action="edit" arguments="{contenu : contenu}">Edit</f:link.action></td>
 			<td><f:link.action action="delete" arguments="{contenu : contenu}">Delete</f:link.action></td>
 		</tr>

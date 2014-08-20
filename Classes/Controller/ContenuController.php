@@ -49,6 +49,7 @@ class ContenuController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 	 */
 	public function listAction() {
 		$contenus = $this->contenuRepository->findAll();
+        echo count($contenus);
 		$this->view->assign('contenus', $contenus);
 	}
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2014-03-17T17:13:53Z" product-name="pap_marketplace">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-04-21T18:56:41Z" product-name="pap_marketplace">
 		<header/>
 		<body>
 
@@ -16,6 +16,12 @@
 			<trans-unit id="tx_papmarketplace_domain_model_contenu.prix">
 				<source>Prix</source>
 			</trans-unit>
+			<trans-unit id="tx_papmarketplace_domain_model_contenu.image">
+				<source>Image</source>
+			</trans-unit>
+			<trans-unit id="tx_papmarketplace_domain_model_contenu.description">
+				<source>Description</source>
+			</trans-unit>
 			<trans-unit id="tx_papmarketplace_domain_model_contenu.categories">
 				<source>Categories</source>
 			</trans-unit>
@@ -27,6 +33,9 @@
 			</trans-unit>
 			<trans-unit id="tx_papmarketplace_domain_model_contenu.proprietaire">
 				<source>Proprietaire</source>
+			</trans-unit>
+			<trans-unit id="tx_papmarketplace_domain_model_contenu.niveau">
+				<source>Niveau</source>
 			</trans-unit>
 
 			<trans-unit id="tx_papmarketplace_domain_model_fichier">
@@ -101,6 +110,13 @@
 				<source>PAP Marketplace Utilisateur</source>
 			</trans-unit>
 			
+			<trans-unit id="tx_papmarketplace_domain_model_niveau">
+				<source>Niveau</source>
+			</trans-unit>
+			<trans-unit id="tx_papmarketplace_domain_model_niveau.nom">
+				<source>Nom</source>
+			</trans-unit>
+
 		</body>
 	</file>
 </xliff>

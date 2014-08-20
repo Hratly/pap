@@ -1,21 +1,42 @@
-<f:layout name="Default" />
-
-This Template is responsible for displaying a single view for a domain object
-
-If you modify this template, do not forget to change the overwrite settings
-in /Configuration/ExtensionBuilder/settings.yaml:
-  Resources:
-    Private:
-      Templates:
-        Show.html: keep
-
-Otherwise your changes will be overwritten the next time you save the extension in the extension builder
-
+<f:layout name="Default"/>
 <f:section name="main">
-<h1>Single View for Contenu</h1>
 
 <f:flashMessages />
-<f:render partial="Contenu/Properties" arguments="{contenu:contenu}" />
-<f:link.action action="list">Back to list</f:link.action><br />
-<f:link.action action="new">New Contenu</f:link.action>
+<form role="form" class="form-horizontal">
+    <article>
+        <header>
+            <h2>{contenu.nom}</h2>
+            <span class="byline">Ajouté par : {contenu.proprietaire.nomComplet}</span><br/>
+            <div class="6u">
+                <b>Niveau : </b>
+                <f:for each="{contenu.niveau}" as="niveau">
+                    <span class="badge">{niveau.nom}</span>&nbsp;
+                </f:for>
+            </div><br/>
+            <div class="6u">
+                <b>Matière :</b>
+                <f:for each="{contenu.categories}" as="categorie">
+                    <span class="badge">{categorie.nom}</span>&nbsp;
+                </f:for>
+            </div>
+            <div class="clear"/>
+        </header>
+    </article>
+
+    <div class="row">
+        <div class="3u image">
+            <f:if condition="{contenu.image}">
+                <f:then>
+                    <a rel="lightbox" href="fileadmin/user_upload/{contenu.image}" id="lblink"><f:image src="fileadmin/user_upload/{contenu.image}" alt="<i>Image non disponible</i>"/></a>
+                </f:then>
+                <f:else>
+                    <span><i>Image non disponible</i></span>
+                </f:else>
+            </f:if>
+        </div>
+        <div class="6u">
+            <f:render partial="Contenu/Properties" arguments="{contenu:contenu}" />
+        </div>
+    </div>
+</form>
 </f:section>

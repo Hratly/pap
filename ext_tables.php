@@ -9,19 +9,9 @@ if (!defined('TYPO3_MODE')) {
 	'Gestion du contenu'
 );
 
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-    $_EXTKEY,
-    'Gestionprofil',
-    'Gestion du profil'
-);
-
 $pluginSignature = str_replace('_','',$_EXTKEY) . '_gestioncontenu';
 $TCA['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue($pluginSignature, 'FILE:EXT:' . $_EXTKEY . '/Configuration/FlexForms/flexform_gestioncontenu.xml');
-
-$pluginSignature = str_replace('_','',$_EXTKEY) . '_gestionprofil';
-$TCA['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue($pluginSignature, 'FILE:EXT:' . $_EXTKEY . '/Configuration/FlexForms/flexform_gestionprofil.xml');
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'PAP Marketplace');
 
@@ -48,7 +38,7 @@ $TCA['tx_papmarketplace_domain_model_contenu'] = array(
 			'starttime' => 'starttime',
 			'endtime' => 'endtime',
 		),
-		'searchFields' => 'nom,date_creation,prix,categories,fichiers,commentaires,proprietaire,',
+		'searchFields' => 'nom,date_creation,prix,image,description,categories,fichiers,commentaires,proprietaire,niveau,',
 		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/Contenu.php',
 		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_papmarketplace_domain_model_contenu.gif'
 	),
@@ -232,6 +222,35 @@ $TCA['fe_users']['columns'][$TCA['fe_users']['ctrl']['type']]['config']['items']
 
 $TCA['fe_users']['types']['Tx_PapMarketplace_Utilisateur']['showitem'] = $TCA['fe_users']['types']['1']['showitem'];
 $TCA['fe_users']['types']['Tx_PapMarketplace_Utilisateur']['showitem'] .= ',--div--;LLL:EXT:pap_marketplace/Resources/Private/Language/locallang_db.xlf:tx_papmarketplace_domain_model_utilisateur,';
-$TCA['fe_users']['types']['Tx_PapMarketplace_Utilisateur']['showitem'] .= '--div--organisation, presentation, paypal, photo';
+$TCA['fe_users']['types']['Tx_PapMarketplace_Utilisateur']['showitem'] .= 'organisation, presentation, paypal, photo';
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_papmarketplace_domain_model_niveau', 'EXT:pap_marketplace/Resources/Private/Language/locallang_csh_tx_papmarketplace_domain_model_niveau.xlf');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_papmarketplace_domain_model_niveau');
+$TCA['tx_papmarketplace_domain_model_niveau'] = array(
+	'ctrl' => array(
+		'title'	=> 'LLL:EXT:pap_marketplace/Resources/Private/Language/locallang_db.xlf:tx_papmarketplace_domain_model_niveau',
+		'label' => 'nom',
+		'tstamp' => 'tstamp',
+		'crdate' => 'crdate',
+		'cruser_id' => 'cruser_id',
+		'dividers2tabs' => TRUE,
+
+		'versioningWS' => 2,
+		'versioning_followPages' => TRUE,
+		'origUid' => 't3_origuid',
+		'languageField' => 'sys_language_uid',
+		'transOrigPointerField' => 'l10n_parent',
+		'transOrigDiffSourceField' => 'l10n_diffsource',
+		'delete' => 'deleted',
+		'enablecolumns' => array(
+			'disabled' => 'hidden',
+			'starttime' => 'starttime',
+			'endtime' => 'endtime',
+		),
+		'searchFields' => 'nom,',
+		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/Niveau.php',
+		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_papmarketplace_domain_model_niveau.gif'
+	),
+);
 
 ?>

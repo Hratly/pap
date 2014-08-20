@@ -138,5 +138,14 @@ class Utilisateur extends \TYPO3\CMS\Extbase\Domain\Model\FrontendUser {
 		$this->photo = $photo;
 	}
 
+    /**
+     * Retourne le nom complet
+     *
+     * @return string
+     */
+    public function getNomComplet() {
+        return $this->getFirstName()." ".$this->getLastName();
+    }
+
 }
 ?>

@@ -1,0 +1,40 @@
+.clear {
+    clear:both;
+}
+
+.badge {
+    background-color: #82acc6!important;
+    letter-spacing: 1px;
+}
+
+section, article, .tx-pap-marketplace header {
+    margin-bottom: 1em !important;
+}
+
+.image {
+    border : solid 1px gray;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.image img {
+    width: 100%;
+    height: auto;
+}
+
+.prix {
+    font-family: Arial,sans-serif;
+    text-rendering: optimizeLegibility;
+    color: #82acc6;
+    font-weight: bold;
+}
+
+.button {
+    background-color: #82acc6!important;
+    letter-spacing: 1px;
+}
+
+.button::after {
+    height: 2.75em;
+    border-left: solid 1em #82acc6!important;
+}

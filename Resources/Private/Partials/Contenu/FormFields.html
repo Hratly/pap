@@ -1,3 +1,8 @@
+
+
+
+
+
 <label for="nom">
 	<f:translate key="tx_papmarketplace_domain_model_contenu.nom" /> <span class="required">(required)</span>
 </label><br />
@@ -10,3 +15,11 @@
 	<f:translate key="tx_papmarketplace_domain_model_contenu.prix" /> <span class="required">(required)</span>
 </label><br />
 	<f:form.textfield property="prix" /><br />
+<label for="image">
+	<f:translate key="tx_papmarketplace_domain_model_contenu.image" /> <span class="required">(required)</span>
+</label><br />
+	<f:form.upload property="image" /><br />
+<label for="description">
+	<f:translate key="tx_papmarketplace_domain_model_contenu.description" /> <span class="required">(required)</span>
+</label><br />
+	<f:form.textarea property="description" cols="40" rows="15" /><br />

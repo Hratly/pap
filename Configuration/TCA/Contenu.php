@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_papmarketplace_domain_model_contenu'] = array(
 	'ctrl' => $TCA['tx_papmarketplace_domain_model_contenu']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, nom, date_creation, prix, categories, fichiers, commentaires, proprietaire',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, nom, date_creation, prix, image, description, categories, fichiers, commentaires, proprietaire, niveau',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, nom, date_creation, prix, categories, fichiers, commentaires, proprietaire,--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,starttime, endtime'),
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, nom, date_creation, prix, image, description, categories, fichiers, commentaires, proprietaire, niveau,--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -122,6 +122,40 @@ $TCA['tx_papmarketplace_domain_model_contenu'] = array(
 				'eval' => 'double2,required'
 			),
 		),
+		'image' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:pap_marketplace/Resources/Private/Language/locallang_db.xlf:tx_papmarketplace_domain_model_contenu.image',
+			'config' => array(
+				'type' => 'group',
+				'internal_type' => 'file',
+				'uploadfolder' => 'uploads/tx_papmarketplace',
+				'show_thumbs' => 1,
+				'size' => 5,
+				'allowed' => $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'],
+				'disallowed' => '',
+			),
+		),
+		'description' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:pap_marketplace/Resources/Private/Language/locallang_db.xlf:tx_papmarketplace_domain_model_contenu.description',
+			'config' => array(
+				'type' => 'text',
+				'cols' => 40,
+				'rows' => 15,
+				'eval' => 'trim,required',
+				'wizards' => array(
+					'RTE' => array(
+						'icon' => 'wizard_rte2.gif',
+						'notNewRecords'=> 1,
+						'RTEonly' => 1,
+						'script' => 'wizard_rte.php',
+						'title' => 'LLL:EXT:cms/locallang_ttc.xlf:bodytext.W.RTE',
+						'type' => 'script'
+					)
+				)
+			),
+			'defaultExtras' => 'richtext:rte_transform[flag=rte_enabled|mode=ts]',
+		),
 		'categories' => array(
 			'exclude' => 0,
 			'label' => 'LLL:EXT:pap_marketplace/Resources/Private/Language/locallang_db.xlf:tx_papmarketplace_domain_model_contenu.categories',
@@ -195,17 +229,49 @@ $TCA['tx_papmarketplace_domain_model_contenu'] = array(
 		'proprietaire' => array(
 			'exclude' => 0,
 			'label' => 'LLL:EXT:pap_marketplace/Resources/Private/Language/locallang_db.xlf:tx_papmarketplace_domain_model_contenu.proprietaire',
+            'config' => array(
+                'type' => 'select',
+                'foreign_table' => 'fe_users',
+                'minitems' => 0,
+                'maxitems' => 1,
+                'items' => array(
+                    array('', NULL),
+                ),
+            ),
+		),
+		'niveau' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:pap_marketplace/Resources/Private/Language/locallang_db.xlf:tx_papmarketplace_domain_model_contenu.niveau',
 			'config' => array(
-				'type' => 'inline',
-				'foreign_table' => 'fe_users',
-				'minitems' => 0,
-				'maxitems' => 1,
-				'appearance' => array(
-					'collapseAll' => 0,
-					'levelLinksPosition' => 'top',
-					'showSynchronizationLink' => 1,
-					'showPossibleLocalizationRecords' => 1,
-					'showAllLocalizationLink' => 1
+				'type' => 'select',
+				'foreign_table' => 'tx_papmarketplace_domain_model_niveau',
+				'MM' => 'tx_papmarketplace_contenu_niveau_mm',
+				'size' => 10,
+				'autoSizeMax' => 30,
+				'maxitems' => 9999,
+				'multiple' => 0,
+				'wizards' => array(
+					'_PADDING' => 1,
+					'_VERTICAL' => 1,
+					'edit' => array(
+						'type' => 'popup',
+						'title' => 'Edit',
+						'script' => 'wizard_edit.php',
+						'icon' => 'edit2.gif',
+						'popup_onlyOpenIfSelected' => 1,
+						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
+						),
+					'add' => Array(
+						'type' => 'script',
+						'title' => 'Create new',
+						'icon' => 'add.gif',
+						'params' => array(
+							'table' => 'tx_papmarketplace_domain_model_niveau',
+							'pid' => '###CURRENT_PID###',
+							'setValue' => 'prepend'
+							),
+						'script' => 'wizard_add.php',
+					),
 				),
 			),
 		),

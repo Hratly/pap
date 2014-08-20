@@ -42,14 +42,6 @@ class UtilisateurController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
 	 */
 	protected $utilisateurRepository;
 
-    /**
-     * utilisateurRepository
-     *
-     * @var \TYPO3\CMS\Extbase\Domain\Repository\FrontendUserGroupRepository
-     * @inject
-     */
-    protected $frontEndUserGroupRepository;
-
 	/**
 	 * action new
 	 *
@@ -68,23 +60,9 @@ class UtilisateurController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
 	 * @return void
 	 */
 	public function createAction(\TYPO3\PapMarketplace\Domain\Model\Utilisateur $newUtilisateur) {
-        if($this->utilisateurRepository->findByUsername($newUtilisateur->getEmail())->count() > 0) {
-            $this->controllerContext->getFlashMessageQueue()->addMessage(
-                new \TYPO3\CMS\Core\Messaging\FlashMessage(
-                    "Erreur, cette adresse de courriel est déjà utilisée.","",\TYPO3\CMS\Core\Messaging\FlashMessage::ERROR
-                )
-            );
-            $this->forward('new');
-        }
-
-        $newUtilisateur->setUsername($newUtilisateur->getEmail());
-        $newUtilisateur->setPid($this->settings['utilisateurPid']);
-        $userGroups = $this->objectManager->get('TYPO3\CMS\Extbase\Persistence\ObjectStorage');
-        $userGroups->attach($this->frontEndUserGroupRepository->findByUid(1));
-        $newUtilisateur->setUsergroup($userGroups);
 		$this->utilisateurRepository->add($newUtilisateur);
-
-        $this->redirect('afficherConfirmation');
+		$this->flashMessageContainer->add('Your new Utilisateur was created.');
+		$this->redirect('list');
 	}
 
 	/**
@@ -108,19 +86,6 @@ class UtilisateurController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
 		$this->flashMessageContainer->add('Your Utilisateur was updated.');
 		$this->redirect('list');
 	}
-
-    /**
-     * action afficherConfirmation
-     *
-     * @return void
-     */
-    public function afficherConfirmationAction() {
-        $this->controllerContext->getFlashMessageQueue()->addMessage(
-            new \TYPO3\CMS\Core\Messaging\FlashMessage(
-                "Votre compte d'usager a été créé avec succès. Vous recevrez dans les prochaines minutes une confirmation à votre adresse courriel.","",\TYPO3\CMS\Core\Messaging\FlashMessage::OK
-            )
-        );
-    }
 
 }
 ?>

@@ -32,7 +32,7 @@ namespace TYPO3\PapMarketplace\Domain\Model;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class Fichier extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
+class Niveau extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * nom
@@ -40,20 +40,6 @@ class Fichier extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @var \string
 	 */
 	protected $nom;
-
-	/**
-	 * dossier
-	 *
-	 * @var \string
-	 */
-	protected $dossier;
-
-	/**
-	 * taille
-	 *
-	 * @var \float
-	 */
-	protected $taille;
 
 	/**
 	 * Returns the nom
@@ -73,67 +59,6 @@ class Fichier extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	public function setNom($nom) {
 		$this->nom = $nom;
 	}
-
-	/**
-	 * Returns the dossier
-	 *
-	 * @return \string $dossier
-	 */
-	public function getDossier() {
-		return $this->dossier;
-	}
-
-	/**
-	 * Sets the dossier
-	 *
-	 * @param \string $dossier
-	 * @return void
-	 */
-	public function setDossier($dossier) {
-		$this->dossier = $dossier;
-	}
-
-	/**
-	 * Returns the taille
-	 *
-	 * @return \float $taille
-	 */
-	public function getTaille() {
-		return $this->taille;
-	}
-
-    /**
-     * Retourne la taille formatée
-     *
-     * @return \float $taille
-     */
-    public function getFormatTaille() {
-        return $this->formatBytes($this->taille);
-    }
-
-	/**
-	 * Sets the taille
-	 *
-	 * @param \float $taille
-	 * @return void
-	 */
-	public function setTaille($taille) {
-		$this->taille = $taille;
-	}
-
-   private function formatBytes($bytes, $precision = 2) {
-        $units = array('B', 'KB', 'MB', 'GB', 'TB');
-
-        $bytes = max($bytes, 0);
-        $pow = floor(($bytes ? log($bytes) : 0) / log(1024));
-        $pow = min($pow, count($units) - 1);
-
-        // Uncomment one of the following alternatives
-        // $bytes /= pow(1024, $pow);
-        // $bytes /= (1 << (10 * $pow));
-
-        return round($bytes, $precision) . ' ' . $units[$pow];
-    }
 
 }
 ?>

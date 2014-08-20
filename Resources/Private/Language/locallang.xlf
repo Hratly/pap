@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2014-03-17T17:13:53Z" product-name="pap_marketplace">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-04-21T18:56:41Z" product-name="pap_marketplace">
 		<header/>
 		<body>
 
@@ -14,7 +14,13 @@
 				<source>dateCreation</source>
 			</trans-unit>
 			<trans-unit id="tx_papmarketplace_domain_model_contenu.prix">
-				<source>proprietaire</source>
+				<source>prix</source>
+			</trans-unit>
+			<trans-unit id="tx_papmarketplace_domain_model_contenu.image">
+				<source>image</source>
+			</trans-unit>
+			<trans-unit id="tx_papmarketplace_domain_model_contenu.description">
+				<source>description</source>
 			</trans-unit>
 			<trans-unit id="tx_papmarketplace_domain_model_contenu.categories">
 				<source>categories</source>
@@ -27,6 +33,9 @@
 			</trans-unit>
 			<trans-unit id="tx_papmarketplace_domain_model_contenu.proprietaire">
 				<source>proprietaire</source>
+			</trans-unit>
+			<trans-unit id="tx_papmarketplace_domain_model_contenu.niveau">
+				<source>niveau</source>
 			</trans-unit>
 			
 			<trans-unit id="tx_papmarketplace_domain_model_fichier">
@@ -84,30 +93,26 @@
 			<trans-unit id="tx_papmarketplace_domain_model_utilisateur">
 				<source>Utilisateur</source>
 			</trans-unit>
-			<trans-unit id="tx_papmarketplace_domain_model_utilisateur.firstname">
-                <source>Prénom</source>
-            </trans-unit>
-            <trans-unit id="tx_papmarketplace_domain_model_utilisateur.lastname">
-                <source>Nom</source>
-            </trans-unit>
-            <trans-unit id="tx_papmarketplace_domain_model_utilisateur.email">
-                <source>Adresse courriel</source>
-            </trans-unit>
-             <trans-unit id="tx_papmarketplace_domain_model_utilisateur.password">
-                <source>Mot de passe</source>
-            </trans-unit>
 			<trans-unit id="tx_papmarketplace_domain_model_utilisateur.organisation">
-				<source>École ou entreprise</source>
+				<source>organisation</source>
 			</trans-unit>
 			<trans-unit id="tx_papmarketplace_domain_model_utilisateur.presentation">
-				<source>Présentez-vous</source>
+				<source>presentation</source>
 			</trans-unit>
 			<trans-unit id="tx_papmarketplace_domain_model_utilisateur.paypal">
-				<source>Adresse paypal</source>
+				<source>paypal</source>
 			</trans-unit>
 			<trans-unit id="tx_papmarketplace_domain_model_utilisateur.photo">
-				<source>Photo</source>
+				<source>photo</source>
 			</trans-unit>
+			
+			<trans-unit id="tx_papmarketplace_domain_model_niveau">
+				<source>Niveau</source>
+			</trans-unit>
+			<trans-unit id="tx_papmarketplace_domain_model_niveau.nom">
+				<source>nom</source>
+			</trans-unit>
+			
 		</body>
 	</file>
 </xliff>

@@ -103,6 +103,40 @@ class ContenuTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	/**
 	 * @test
 	 */
+	public function getImageReturnsInitialValueForString() { }
+
+	/**
+	 * @test
+	 */
+	public function setImageForStringSetsImage() { 
+		$this->fixture->setImage('Conceived at T3CON10');
+
+		$this->assertSame(
+			'Conceived at T3CON10',
+			$this->fixture->getImage()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function getDescriptionReturnsInitialValueForString() { }
+
+	/**
+	 * @test
+	 */
+	public function setDescriptionForStringSetsDescription() { 
+		$this->fixture->setDescription('Conceived at T3CON10');
+
+		$this->assertSame(
+			'Conceived at T3CON10',
+			$this->fixture->getDescription()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
 	public function getCategoriesReturnsInitialValueForCategorie() { 
 		$newObjectStorage = new \TYPO3\CMS\Extbase\Persistence\Generic\ObjectStorage();
 		$this->assertEquals(
@@ -283,6 +317,64 @@ class ContenuTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	 * @test
 	 */
 	public function setProprietaireForUtilisateurSetsProprietaire() { }
+	
+	/**
+	 * @test
+	 */
+	public function getNiveauReturnsInitialValueForNiveau() { 
+		$newObjectStorage = new \TYPO3\CMS\Extbase\Persistence\Generic\ObjectStorage();
+		$this->assertEquals(
+			$newObjectStorage,
+			$this->fixture->getNiveau()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setNiveauForObjectStorageContainingNiveauSetsNiveau() { 
+		$niveau = new \TYPO3\PapMarketplace\Domain\Model\Niveau();
+		$objectStorageHoldingExactlyOneNiveau = new \TYPO3\CMS\Extbase\Persistence\Generic\ObjectStorage();
+		$objectStorageHoldingExactlyOneNiveau->attach($niveau);
+		$this->fixture->setNiveau($objectStorageHoldingExactlyOneNiveau);
+
+		$this->assertSame(
+			$objectStorageHoldingExactlyOneNiveau,
+			$this->fixture->getNiveau()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function addNiveauToObjectStorageHoldingNiveau() {
+		$niveau = new \TYPO3\PapMarketplace\Domain\Model\Niveau();
+		$objectStorageHoldingExactlyOneNiveau = new \TYPO3\CMS\Extbase\Persistence\Generic\ObjectStorage();
+		$objectStorageHoldingExactlyOneNiveau->attach($niveau);
+		$this->fixture->addNiveau($niveau);
+
+		$this->assertEquals(
+			$objectStorageHoldingExactlyOneNiveau,
+			$this->fixture->getNiveau()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function removeNiveauFromObjectStorageHoldingNiveau() {
+		$niveau = new \TYPO3\PapMarketplace\Domain\Model\Niveau();
+		$localObjectStorage = new \TYPO3\CMS\Extbase\Persistence\Generic\ObjectStorage();
+		$localObjectStorage->attach($niveau);
+		$localObjectStorage->detach($niveau);
+		$this->fixture->addNiveau($niveau);
+		$this->fixture->removeNiveau($niveau);
+
+		$this->assertEquals(
+			$localObjectStorage,
+			$this->fixture->getNiveau()
+		);
+	}
 	
 }
 ?>
