@@ -106,9 +106,14 @@ $TCA['tx_papmarketplace_domain_model_fichier'] = array(
 			'exclude' => 0,
 			'label' => 'LLL:EXT:pap_marketplace/Resources/Private/Language/locallang_db.xlf:tx_papmarketplace_domain_model_fichier.dossier',
 			'config' => array(
-				'type' => 'input',
-				'size' => 30,
-				'eval' => 'trim'
+				'type' => 'group',
+                'internal_type' => 'file',
+                'disallowed' => 'exe',
+                'uploadfolder' => 'uploads/tx_papmarketplace',
+                'max_size' => $GLOBALS['TYPO3_CONF_VARS']['BE']['maxFileSize'],
+                'size' => '3',
+                'maxitems' => '1',
+                'minitems' => '1',
 			),
 		),
 		'taille' => array(
