@@ -45,7 +45,7 @@
 				<source>Nom</source>
 			</trans-unit>
 			<trans-unit id="tx_papmarketplace_domain_model_fichier.dossier">
-				<source>Dossier</source>
+				<source>Fichiers</source>
 			</trans-unit>
 			<trans-unit id="tx_papmarketplace_domain_model_fichier.taille">
 				<source>Taille</source>

@@ -7,7 +7,7 @@ if (!defined('TYPO3_MODE')) {
 	'TYPO3.' . $_EXTKEY,
 	'Gestioncontenu',
 	array(
-		'Contenu' => 'list, show, new, edit',
+		'Contenu' => 'list, show, new, edit, acheter',
 		
 	),
 	// non-cacheable actions
@@ -15,6 +15,20 @@ if (!defined('TYPO3_MODE')) {
 		'Contenu' => 'create, update, delete',
 		
 	)
+);
+
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+    'TYPO3.' . $_EXTKEY,
+    'Gestionprofil',
+    array(
+        'Utilisateur' => 'new, edit, afficherConfirmation, recupererMotDePasse',
+
+    ),
+    // non-cacheable actions
+    array(
+        'Utilisateur' => 'create, update, doRecupererMotDePasse',
+
+    )
 );
 
 ?>

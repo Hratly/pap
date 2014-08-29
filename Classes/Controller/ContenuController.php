@@ -120,5 +120,15 @@ class ContenuController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 		$this->redirect('list');
 	}
 
+    /**
+     * action acheter
+     *
+     * @param \TYPO3\PapMarketplace\Domain\Model\Contenu $contenu
+     * @return void
+     */
+    public function acheterAction(\TYPO3\PapMarketplace\Domain\Model\Contenu $contenu) {
+        die("bibi!");
+    }
+
 }
 ?>

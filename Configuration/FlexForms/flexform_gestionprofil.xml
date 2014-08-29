@@ -15,11 +15,12 @@
                                 <items>
                                     <numIndex index="0">
                                         <numIndex index="0">Enregistrement</numIndex>
-                                        <numIndex index="1">Utilisateur->new;Utilisateur->create;Utilisateur->afficherConfirmation;</numIndex>
+                                        <numIndex index="1">Utilisateur->new;Utilisateur->create;Utilisateur->afficherConfirmation;Utilisateur->edit;Utilisateur->update;</numIndex>
                                     </numIndex>
+
                                     <numIndex index="1">
-                                        <numIndex index="0">Gestion du profil</numIndex>
-                                        <numIndex index="1">Utilisateur->edit;Utilisateur->update</numIndex>
+                                        <numIndex index="0">Récupéreration d'un mot de passe</numIndex>
+                                        <numIndex index="1">Utilisateur->recupererMotDePasse;Utilisateur->doRecupererMotDePasse</numIndex>
                                     </numIndex>
                                 </items>
                             </config>

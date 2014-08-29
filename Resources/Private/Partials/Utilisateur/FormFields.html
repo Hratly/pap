@@ -1,16 +1,60 @@
-<label for="organisation">
-	<f:translate key="tx_papmarketplace_domain_model_utilisateur.organisation" />
-</label><br />
-	<f:form.textfield property="organisation" /><br />
-<label for="presentation">
-	<f:translate key="tx_papmarketplace_domain_model_utilisateur.presentation" />
-</label><br />
-	<f:form.textarea property="presentation" cols="40" rows="15" /><br />
-<label for="paypal">
-	<f:translate key="tx_papmarketplace_domain_model_utilisateur.paypal" />
-</label><br />
-	<f:form.textfield property="paypal" /><br />
-<label for="photo">
-	<f:translate key="tx_papmarketplace_domain_model_utilisateur.photo" />
-</label><br />
-	<f:form.upload property="photo" /><br />
+<div class="form-group">
+    <label for="username" class="col-sm-4 control-label">Nom d'utilisateur</label>
+    <div class="required col-sm-8">
+        <f:form.textfield class="form-control" property="username" required="true"/>
+    </div>
+</div>
+<div class="form-group">
+    <label for="password" class="col-sm-4 control-label">Mot de passe</label>
+    <div class="required col-sm-8">
+        <f:form.password property="password" />
+    </div>
+</div>
+<div class="form-group">
+    <label for="confirm_password" class="col-sm-4 control-label">Confirmez votre mot de passe</label>
+    <div class="required col-sm-8">
+        <f:form.password name="confirm_password" />
+    </div>
+</div>
+<div class="form-group">
+    <label for="firstname" class="col-sm-4 control-label">Prénom</label>
+    <div class="required col-sm-8">
+        <f:form.textfield id="firstname" class="form-control" property="firstName" required="true"/>
+    </div>
+</div>
+<div class="form-group">
+    <label for="lastname" class="col-sm-4 control-label">Nom</label>
+    <div class="required col-sm-8">
+        <f:form.textfield class="form-control" property="lastName" required="true"/>
+    </div>
+</div>
+<div class="form-group">
+    <label for="email" class="col-sm-4 control-label">Courriel</label>
+    <div class="required col-sm-8">
+        <f:form.textfield class="form-control" property="email" required="true" />
+    </div>
+</div>
+<div class="form-group">
+    <label for="organisation" class="col-sm-4 control-label">Organisation</label>
+    <div class="col-sm-8">
+        <f:form.textfield class="form-control" property="organisation" />
+    </div>
+</div>
+<div class="form-group">
+    <label for="paypal" class="col-sm-4 control-label">Adresse courriel paypal</label>
+    <div class="col-sm-8">
+        <f:form.textfield class="form-control" property="paypal"/><br />
+    </div>
+</div>
+<div class="form-group">
+    <label for="photo" class="col-sm-4 control-label">Photo</label>
+    <div class="col-sm-8">
+        <f:form.upload class="form-control" property="photo" />
+    </div>
+</div>
+<div class="form-group">
+    <label for="presentation" class="col-sm-4 control-label">Mot d'introduction</label>
+    <div class="col-sm-8">
+        <f:form.textarea class="form-control" property="presentation" cols="60" rows="15" />
+    </div>
+</div>

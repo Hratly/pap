@@ -1,25 +1,25 @@
+{namespace pap=TYPO3\PapMarketplace\ViewHelpers}
 <f:layout name="Default" />
 
-This template displays a NEW form for the current domain object.
-
-If you modify this template, do not forget to change the overwrite settings
-in /Configuration/ExtensionBuilder/settings.yaml:
-  Resources:
-    Private:
-      Templates:
-        New.html: keep
-
-Otherwise your changes will be overwritten the next time you save the extension in the extension builder
-
 <f:section name="main">
-<h1>New Utilisateur</h1>
-
-<f:flashMessages />
-
 <f:render partial="FormErrors" arguments="{object:Utilisateur}"/>
 
-<f:form action="create"  enctype="multipart/form-data"  name="newUtilisateur" object="{newUtilisateur}">
-<f:render partial="Utilisateur/FormFields" />
-	<f:form.submit value="Create new" />
+<f:form action="create" id="creationUtilisateur" class="form-horizontal inscription" enctype="multipart/form-data"  name="newUtilisateur" object="{newUtilisateur}">
+    <pap:flashMessages />
+    <article>
+        <header>
+            <h2>Inscription</h2>
+            <span class="byline">C'est gratuit et rapide!</span><br/>
+        </header>
+    </article>
+
+    <f:render partial="Utilisateur/FormFields" />
+
+    <div class="form-group">
+        <div class="col-sm-2">&nbsp;</div>
+        <div class="col-sm-10">
+            <f:form.submit value="Inscrivez-vous maintenant!" class="header-login-submit" />
+        </div>
+    </div>
 </f:form>
 </f:section>

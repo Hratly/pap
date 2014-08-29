@@ -9,6 +9,16 @@ if (!defined('TYPO3_MODE')) {
 	'Gestion du contenu'
 );
 
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+    $_EXTKEY,
+    'Gestionprofil',
+    'Gestion du profil'
+);
+
+$pluginSignature = str_replace('_','',$_EXTKEY) . '_gestionprofil';
+$TCA['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue($pluginSignature, 'FILE:EXT:' . $_EXTKEY . '/Configuration/FlexForms/flexform_gestionprofil.xml');
+
 $pluginSignature = str_replace('_','',$_EXTKEY) . '_gestioncontenu';
 $TCA['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue($pluginSignature, 'FILE:EXT:' . $_EXTKEY . '/Configuration/FlexForms/flexform_gestioncontenu.xml');

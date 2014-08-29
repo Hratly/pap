@@ -179,7 +179,7 @@ class Contenu extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @return \float $prix
 	 */
 	public function getPrix() {
-		return $this->prix;
+		return number_format($this->prix,2);
 	}
 
 	/**
